@@ -22,13 +22,6 @@
           <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
-      <runner id="RUNNER_5" name="" type="dotnet.cli">
-        <parameters>
-          <param name="command" value="publish" />
-          <param name="paths" value="MyPerfectApp/MyPerfectApp/MyPerfectApp.csproj" />
-          <param name="teamcity.step.mode" value="default" />
-        </parameters>
-      </runner>
       <runner id="RUNNER_6" name="" type="VS.Solution">
         <parameters>
           <param name="build-file-path" value="MyPerfectApp/MyPerfectApp.sln" />
