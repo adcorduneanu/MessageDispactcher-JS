@@ -14,14 +14,6 @@
           <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
-      <runner id="RUNNER_4" name="" type="dotnet.cli">
-        <parameters>
-          <param name="command" value="build" />
-          <param name="dotNetCoverage.dotCover.home.path" value="%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%" />
-          <param name="paths" value="MyPerfectApp/MyPerfectApp.sln" />
-          <param name="teamcity.step.mode" value="default" />
-        </parameters>
-      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="MyProj_HttpsGithubComKordosoftTestGit2refsHeadsMaster" />
