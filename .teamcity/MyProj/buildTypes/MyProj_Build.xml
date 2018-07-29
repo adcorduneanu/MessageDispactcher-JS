@@ -22,18 +22,6 @@
           <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
-      <runner id="RUNNER_6" name="" type="VS.Solution">
-        <parameters>
-          <param name="build-file-path" value="MyPerfectApp/MyPerfectApp.sln" />
-          <param name="msbuild.prop.Configuration" value="release%DotNetFramework4.7_x64%" />
-          <param name="msbuild_version" value="15.0" />
-          <param name="run-platform" value="x86" />
-          <param name="targets" value="Rebuild" />
-          <param name="teamcity.step.mode" value="default" />
-          <param name="toolsVersion" value="15.0" />
-          <param name="vs.version" value="vs2017" />
-        </parameters>
-      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="MyProj_HttpsGithubComKordosoftTestGit2refsHeadsMaster" />
