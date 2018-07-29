@@ -24,6 +24,7 @@
     </extension>
     <extension id="repository-nuget-default" type="PackageRepository">
       <parameters>
+        <param name="indexPackages" value="true" />
         <param name="name" value="default" />
         <param name="type" value="nuget" />
       </parameters>
