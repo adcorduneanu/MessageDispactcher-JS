@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="290bc497-4649-4f4f-8db8-d9c9df1e8895" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/2018.1/project-config.xsd">
+  <name>My Proj</name>
+  <parameters />
+  <project-extensions>
+    <extension id="PROJECT_EXT_2" type="OAuthProvider">
+      <parameters>
+        <param name="clientId" value="112dd829f72b56cf4352" />
+        <param name="defaultTokenScope" value="public_repo,repo,repo:status,write:repo_hook" />
+        <param name="displayName" value="GitHub.com" />
+        <param name="gitHubUrl" value="https://github.com/" />
+        <param name="providerType" value="GitHub" />
+        <param name="secure:clientSecret" value="credentialsJSON:e1a5a965-21b8-4f9f-a17d-dd823d8e0be2" />
+      </parameters>
+    </extension>
+    <extension id="PROJECT_EXT_3" type="versionedSettings">
+      <parameters>
+        <param name="buildSettings" value="ALWAYS_USE_CURRENT" />
+        <param name="credentialsStorageType" value="credentialsJSON" />
+        <param name="enabled" value="true" />
+        <param name="rootId" value="MyProj_HttpsGithubComKordosoftTestGit2refsHeadsMaster" />
+        <param name="showChanges" value="false" />
+      </parameters>
+    </extension>
+  </project-extensions>
+  <cleanup />
+</project>
+

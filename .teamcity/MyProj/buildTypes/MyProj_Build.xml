@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="d73a933c-c74a-4974-9a8c-08fff581496a" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/2018.1/project-config.xsd">
+  <name>Build</name>
+  <description />
+  <settings>
+    <parameters />
+    <build-runners>
+      <runner id="RUNNER_1" name="" type="jb.nuget.installer">
+        <parameters>
+          <param name="nuget.path" value="%teamcity.tool.NuGet.CommandLine.DEFAULT%" />
+          <param name="nuget.use.restore" value="restore" />
+          <param name="sln.path" value="MyPerfectApp/MyPerfectApp.sln" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_2" name="" type="VS.Solution">
+        <parameters>
+          <param name="build-file-path" value="MyPerfectApp/MyPerfectApp.sln" />
+          <param name="msbuild.prop.Configuration" value="Release" />
+          <param name="msbuild_version" value="15.0" />
+          <param name="run-platform" value="x86" />
+          <param name="targets" value="Rebuild" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="toolsVersion" value="15.0" />
+          <param name="vs.version" value="vs2017" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_3" name="" type="dotnet.cli">
+        <parameters>
+          <param name="command" value="msbuild" />
+          <param name="dotNetCoverage.dotCover.home.path" value="%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%" />
+          <param name="dotNetCoverage.tool" value="dotcover" />
+          <param name="paths" value="MyPerfectApp/MyPerfectApp.sln" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_4" name="" type="dotnet.cli">
+        <parameters>
+          <param name="command" value="build" />
+          <param name="dotNetCoverage.dotCover.home.path" value="%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%" />
+          <param name="paths" value="MyPerfectApp/MyPerfectApp.sln" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_5" name="" type="dotnet.cli">
+        <parameters>
+          <param name="command" value="publish" />
+          <param name="paths" value="MyPerfectApp/MyPerfectApp/MyPerfectApp.csproj" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_6" name="" type="VS.Solution">
+        <parameters>
+          <param name="build-file-path" value="MyPerfectApp/MyPerfectApp.sln" />
+          <param name="msbuild.prop.Configuration" value="release%DotNetFramework4.7_x64%" />
+          <param name="msbuild_version" value="15.0" />
+          <param name="run-platform" value="x86" />
+          <param name="targets" value="Rebuild" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="toolsVersion" value="15.0" />
+          <param name="vs.version" value="vs2017" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="MyProj_HttpsGithubComKordosoftTestGit2refsHeadsMaster" />
+    </vcs-settings>
+    <requirements />
+    <build-triggers>
+      <build-trigger id="vcsTrigger" type="vcsTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:*" />
+          <param name="enableQueueOptimization" value="true" />
+          <param name="quietPeriodMode" value="DO_NOT_USE" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
+    <cleanup />
+  </settings>
+</build-type>
+
