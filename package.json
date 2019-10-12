@@ -1,0 +1,33 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "Message dispatcher",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kordosoft/MessageDispactcher-JS.git"
+  },
+  "keywords": [
+    "Message",
+    "Dispatcher",
+    "JS"
+  ],
+  "author": "Adrian Corduneanu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kordosoft/MessageDispactcher-JS/issues"
+  },
+  "homepage": "https://github.com/kordosoft/MessageDispactcher-JS#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "7.5.5",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
+  }
+}
