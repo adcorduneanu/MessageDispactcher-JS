@@ -4,7 +4,9 @@ export default {
     entry: path.join(__dirname, 'src/index.js'),
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: '[name].bundle.js'
+        filename: 'messageDispatcher.js',
+        libraryTarget: 'umd',
+        umdNamedDefine: true
     },
     module: {
         rules: [{
