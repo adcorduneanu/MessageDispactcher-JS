@@ -6,8 +6,10 @@ class Dispatcher {
     }
 
     publish = (queue, message) => {
-        this.useQueue(queue)
-            .forEach((messageSubscriber) => messageSubscriber.callback.call(this, message, messageSubscriber.priority));
+        this.ensureQueueExists(queue);
+
+        this.queues[queue].forEach((messageSubscriber) =>
+            messageSubscriber.callback.call(this, message, messageSubscriber.priority));
 
         return true;
     }
@@ -16,32 +18,31 @@ class Dispatcher {
         if (typeof callback !== "function") {
             throw "Invalid callback function.";
         }
-
-        var messageQueue = this.useQueue(queue);
+        this.ensureQueueExists(queue);
 
         const subscriber = new Subscriber(callback, id, priority);
 
         this.unsubscribe(queue, id);
 
-        messageQueue.push(subscriber);
-        messageQueue.sort((current, next) => current.priority > next.priority ? -1 : 1);
+        this.queues[queue].push(subscriber);
+        this.queues[queue].sort((current, next) => current.priority > next.priority ? -1 : 1);
 
         return [subscriber.id, subscriber.priority];
     }
 
     unsubscribe = (queue, id) => {
-        this.queues[queue] = this.useQueue(queue)
-            .filter((messageCalback) => messageCalback.id !== id);
+        this.ensureQueueExists(queue);
+
+        this.queues[queue] = this.queues[queue].filter((messageCalback) =>
+            messageCalback.id !== id);
 
         return true;
     }
 
-    useQueue = queue => {
+    ensureQueueExists = queue => {
         if (this.queues[queue] === undefined) {
             this.queues[queue] = [];
         }
-
-        return this.queues[queue];
     }
 };
 
