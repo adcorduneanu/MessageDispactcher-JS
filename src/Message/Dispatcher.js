@@ -21,7 +21,7 @@ class Dispatcher {
 
         const subscriber = new Subscriber(callback, id, priority);
 
-        unsubscribe(queue, id);
+        this.unsubscribe(queue, id);
 
         messageQueue.push(subscriber);
         messageQueue.sort((current, next) => current.priority > next.priority ? -1 : 1);
