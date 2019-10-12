@@ -13,7 +13,7 @@ Argument | Type | Optional | Description
 | message | any | false | the payload (can be object, json, array, string, number, boolean) |
 
 `Usage:`
-```
+```javascript
 const message = { sample: true, content: 'sample' };
 messageDispatcher.publish('myQueue', message);
 ```
@@ -31,7 +31,7 @@ The one who will subscribe to retrieve a message from a specific queue.
 - MessagePriority - available values: `low` (default), `medium`, `high`
 
 `Usage:`
-```
+```javascript
 const myEvent = message => console.log(message);
 const subscriber = messageDispatcher.subscribe('myQueue', myEvent, 'myCustomId', Priority.medium);
 ```
@@ -45,7 +45,7 @@ Argument | Type | Optional | Description
 | id | string | false | the identification code of the targeted listener |
 
 `Usage:`
-```
+```javascript
 messageDispatcher.subscribe('myQueue', subscriber.id);
 ```
 
